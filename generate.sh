@@ -10,20 +10,22 @@ head_() { cat <<EOF
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>$1</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 $2
 <style>
 :root{color-scheme:light dark;--fg:#1b1f24;--bg:#fff;--mut:#57606a;--a:#0969da}
 @media (prefers-color-scheme:dark){:root{--fg:#e6edf3;--bg:#0d1117;--mut:#8d96a0;--a:#4493f8}}
 body{margin:0 auto;max-width:44rem;padding:3rem 1rem;font:16px/1.6 system-ui,sans-serif;color:var(--fg);background:var(--bg)}
-a{color:var(--a)}code{font:0.95em ui-monospace,monospace}p.m{color:var(--mut)}
+a{color:var(--a)}h1{display:flex;align-items:center;gap:.6rem}h1 img{width:2.4rem;height:2.4rem}code{font:0.95em ui-monospace,monospace}p.m{color:var(--mut)}
 </style>
 </head>
 <body>
 EOF
 }
 { head_ "ThingFabric" ""
-  echo '<h1>ThingFabric</h1>'
-  echo '<p>Matter in Go: the device side as an embeddable library, and the modules built on it.</p>'
+  echo '<h1><img src="/logo.svg" alt="">ThingFabric</h1>'
+  echo '<p>Matter in pure Go: an embeddable library for the device and controller side, and the applications built on it.</p>'
   echo '<ul>'
   for m in "${MODS[@]}"; do echo "<li><a href=\"https://github.com/thingfabric/$m\"><code>thingfabric.dev/$m</code></a></li>"; done
   echo '</ul>'
