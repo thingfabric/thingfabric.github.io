@@ -1,0 +1,21 @@
+# code	title	HTTP status (contract version that added it)
+bad_request	Bad request	400
+forbidden	Admin rights required	403
+host_not_allowed	Host not allowed	403 (0.10.0)
+origin_not_allowed	Origin not allowed	403 (0.10.0)
+method_not_allowed	Method not allowed	405 (0.10.0)
+unsupported_media_type	Unsupported media type	415 (0.10.0)
+too_many_streams	Too many streams	503 (0.10.0), `Retry-After: 5`
+conflict	Conflict	409
+icd_multi_admin	Other administrators may not support LIT	409 (0.12.0)
+not_found	Not found	404
+service_unready	Service not ready	503
+internal	Internal error	500 (no detail)
+payload_too_large	Request body too large	413
+node_error	The node failed	502
+node_limit	Node limit reached	409 (0.6.0)
+node_is_default	Node is configuration	409 (0.6.0)
+terms_required	Terms and conditions required	409 (0.8.0); members `version`, `acknowledgements`, `deadline`
+not_implemented	Not implemented	501
+onboarding_code_invalid	Not an onboarding code	400 (0.13.0)
+onboarding_code_mismatch	The code names another device	409 (0.13.0); members `field`, `code_value`, `node_value`

@@ -38,6 +38,21 @@ for m in "${MODS[@]}"; do
     echo "<p class=\"m\">Source: <a href=\"https://github.com/thingfabric/$m\">github.com/thingfabric/$m</a> · Reference: <a href=\"https://pkg.go.dev/thingfabric.dev/$m\">pkg.go.dev</a></p>"
     echo '</body>'; echo '</html>'; } > "$m/index.html"
 done
+# Problem types of go-fabric-ui: every RFC 9457 `type` it answers is
+# https://thingfabric.dev/go-fabric-ui/problems#problem-<code> (contract
+# 0.14.0 and later); one anchor per row of data/go-fabric-ui-problems.tsv.
+mkdir -p go-fabric-ui/problems
+{ head_ "Problem types · thingfabric.dev/go-fabric-ui" "$(tag go-fabric-ui)"
+  echo '<h1>go-fabric-ui problem types</h1>'
+  echo '<p>The <code>type</code> of every problem (RFC 9457) the go-fabric-ui handler answers, from contract 0.14.0. A client matches on <code>code</code> or the <code>X-Problem-Code</code> header, not on <code>type</code>. The full text of each type is in the contract: <a href="https://github.com/thingfabric/go-fabric-ui/blob/main/docs/contract.md#problems">docs/contract.md, Problems</a>.</p>'
+  echo '<dl>'
+  grep -v '^#' data/go-fabric-ui-problems.tsv | while IFS=$'\t' read -r code title status; do
+    echo "<dt id=\"problem-$code\"><code>problem-$code</code> — $title</dt>"
+    echo "<dd>HTTP $status · <a href=\"https://github.com/thingfabric/go-fabric-ui/blob/main/docs/contract.md#problem-$code\">contract</a></dd>"
+  done
+  echo '</dl>'
+  echo '<p class="m"><a href="/go-fabric-ui/">thingfabric.dev/go-fabric-ui</a></p>'
+  echo '</body>'; echo '</html>'; } > go-fabric-ui/problems/index.html
 { head_ "Not found · ThingFabric" "$(for m in "${MODS[@]}"; do tag "$m"; done)"
   echo '<h1>Not found</h1>'
   echo '<p>This page does not exist. <a href="/">ThingFabric</a></p>'

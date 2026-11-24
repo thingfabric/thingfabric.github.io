@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Problem types · thingfabric.dev/go-fabric-ui</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="go-import" content="thingfabric.dev/go-fabric-ui git https://github.com/thingfabric/go-fabric-ui">
+<style>
+:root{color-scheme:light dark;--fg:#1b1f24;--bg:#fff;--mut:#57606a;--a:#0969da}
+@media (prefers-color-scheme:dark){:root{--fg:#e6edf3;--bg:#0d1117;--mut:#8d96a0;--a:#4493f8}}
+body{margin:0 auto;max-width:44rem;padding:3rem 1rem;font:16px/1.6 system-ui,sans-serif;color:var(--fg);background:var(--bg)}
+a{color:var(--a)}h1{display:flex;align-items:center;gap:.6rem}h1 img{width:2.4rem;height:2.4rem}code{font:0.95em ui-monospace,monospace}p.m{color:var(--mut)}
+</style>
+</head>
+<body>
+<h1>go-fabric-ui problem types</h1>
+<p>The <code>type</code> of every problem (RFC 9457) the go-fabric-ui handler answers, from contract 0.14.0. A client matches on <code>code</code> or the <code>X-Problem-Code</code> header, not on <code>type</code>. The full text of each type is in the contract: <a href="https://github.com/thingfabric/go-fabric-ui/blob/main/docs/contract.md#problems">docs/contract.md, Problems</a>.</p>
+<dl>
+<dt id="problem-bad_request"><code>problem-bad_request</code> — Bad request</dt>
+<dd>HTTP 400 · <a href="https://github.com/thingfabric/go-fabric-ui/blob/main/docs/contract.md#problem-bad_request">contract</a></dd>
+<dt id="problem-forbidden"><code>problem-forbidden</code> — Admin rights required</dt>
+<dd>HTTP 403 · <a href="https://github.com/thingfabric/go-fabric-ui/blob/main/docs/contract.md#problem-forbidden">contract</a></dd>
+<dt id="problem-host_not_allowed"><code>problem-host_not_allowed</code> — Host not allowed</dt>
+<dd>HTTP 403 (0.10.0) · <a href="https://github.com/thingfabric/go-fabric-ui/blob/main/docs/contract.md#problem-host_not_allowed">contract</a></dd>
+<dt id="problem-origin_not_allowed"><code>problem-origin_not_allowed</code> — Origin not allowed</dt>
+<dd>HTTP 403 (0.10.0) · <a href="https://github.com/thingfabric/go-fabric-ui/blob/main/docs/contract.md#problem-origin_not_allowed">contract</a></dd>
+<dt id="problem-method_not_allowed"><code>problem-method_not_allowed</code> — Method not allowed</dt>
+<dd>HTTP 405 (0.10.0) · <a href="https://github.com/thingfabric/go-fabric-ui/blob/main/docs/contract.md#problem-method_not_allowed">contract</a></dd>
+<dt id="problem-unsupported_media_type"><code>problem-unsupported_media_type</code> — Unsupported media type</dt>
+<dd>HTTP 415 (0.10.0) · <a href="https://github.com/thingfabric/go-fabric-ui/blob/main/docs/contract.md#problem-unsupported_media_type">contract</a></dd>
+<dt id="problem-too_many_streams"><code>problem-too_many_streams</code> — Too many streams</dt>
+<dd>HTTP 503 (0.10.0), `Retry-After: 5` · <a href="https://github.com/thingfabric/go-fabric-ui/blob/main/docs/contract.md#problem-too_many_streams">contract</a></dd>
+<dt id="problem-conflict"><code>problem-conflict</code> — Conflict</dt>
+<dd>HTTP 409 · <a href="https://github.com/thingfabric/go-fabric-ui/blob/main/docs/contract.md#problem-conflict">contract</a></dd>
+<dt id="problem-icd_multi_admin"><code>problem-icd_multi_admin</code> — Other administrators may not support LIT</dt>
+<dd>HTTP 409 (0.12.0) · <a href="https://github.com/thingfabric/go-fabric-ui/blob/main/docs/contract.md#problem-icd_multi_admin">contract</a></dd>
+<dt id="problem-not_found"><code>problem-not_found</code> — Not found</dt>
+<dd>HTTP 404 · <a href="https://github.com/thingfabric/go-fabric-ui/blob/main/docs/contract.md#problem-not_found">contract</a></dd>
+<dt id="problem-service_unready"><code>problem-service_unready</code> — Service not ready</dt>
+<dd>HTTP 503 · <a href="https://github.com/thingfabric/go-fabric-ui/blob/main/docs/contract.md#problem-service_unready">contract</a></dd>
+<dt id="problem-internal"><code>problem-internal</code> — Internal error</dt>
+<dd>HTTP 500 (no detail) · <a href="https://github.com/thingfabric/go-fabric-ui/blob/main/docs/contract.md#problem-internal">contract</a></dd>
+<dt id="problem-payload_too_large"><code>problem-payload_too_large</code> — Request body too large</dt>
+<dd>HTTP 413 · <a href="https://github.com/thingfabric/go-fabric-ui/blob/main/docs/contract.md#problem-payload_too_large">contract</a></dd>
+<dt id="problem-node_error"><code>problem-node_error</code> — The node failed</dt>
+<dd>HTTP 502 · <a href="https://github.com/thingfabric/go-fabric-ui/blob/main/docs/contract.md#problem-node_error">contract</a></dd>
+<dt id="problem-node_limit"><code>problem-node_limit</code> — Node limit reached</dt>
+<dd>HTTP 409 (0.6.0) · <a href="https://github.com/thingfabric/go-fabric-ui/blob/main/docs/contract.md#problem-node_limit">contract</a></dd>
+<dt id="problem-node_is_default"><code>problem-node_is_default</code> — Node is configuration</dt>
+<dd>HTTP 409 (0.6.0) · <a href="https://github.com/thingfabric/go-fabric-ui/blob/main/docs/contract.md#problem-node_is_default">contract</a></dd>
+<dt id="problem-terms_required"><code>problem-terms_required</code> — Terms and conditions required</dt>
+<dd>HTTP 409 (0.8.0); members `version`, `acknowledgements`, `deadline` · <a href="https://github.com/thingfabric/go-fabric-ui/blob/main/docs/contract.md#problem-terms_required">contract</a></dd>
+<dt id="problem-not_implemented"><code>problem-not_implemented</code> — Not implemented</dt>
+<dd>HTTP 501 · <a href="https://github.com/thingfabric/go-fabric-ui/blob/main/docs/contract.md#problem-not_implemented">contract</a></dd>
+<dt id="problem-onboarding_code_invalid"><code>problem-onboarding_code_invalid</code> — Not an onboarding code</dt>
+<dd>HTTP 400 (0.13.0) · <a href="https://github.com/thingfabric/go-fabric-ui/blob/main/docs/contract.md#problem-onboarding_code_invalid">contract</a></dd>
+<dt id="problem-onboarding_code_mismatch"><code>problem-onboarding_code_mismatch</code> — The code names another device</dt>
+<dd>HTTP 409 (0.13.0); members `field`, `code_value`, `node_value` · <a href="https://github.com/thingfabric/go-fabric-ui/blob/main/docs/contract.md#problem-onboarding_code_mismatch">contract</a></dd>
+</dl>
+<p class="m"><a href="/go-fabric-ui/">thingfabric.dev/go-fabric-ui</a></p>
+</body>
+</html>
